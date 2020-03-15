@@ -1,0 +1,47 @@
+.header {
+  background-color: black;
+  color: #fff;
+  padding: 0;
+
+  ul.tabs {
+    margin: 0;    
+    padding: 10px 80px;
+    text-align: center;
+    background-color: #000000;
+    border-bottom: 1px solid #fff;
+    li {
+      display: inline-block;
+      padding: 10px 10px;
+      margin: 0 30px;
+      background-color: #fff;
+      border-radius: 20px;
+      text-align: center;
+      min-width: 150px;
+      a {
+        color: #000;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+    }
+    li:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+@media only screen and (min-width: 200px) and (max-width: 767px) {
+  .header {
+    padding: 10px;
+    ul.tabs {
+      padding: 0;
+      li {
+        margin: 10px 10px;
+        min-width: 120px;
+      }
+    }
+  }
+}
+a, p, div, span {
+  font-family: cursive;
+}
