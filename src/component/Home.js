@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchMovieDetails } from '../redux';
 import './Home.scss';
+import ShowMovieDescription from './ShowMovie';
 
 class Home extends Component {
     constructor(props) {
@@ -66,20 +67,9 @@ class Home extends Component {
                             </select>
 
                         </div>
-                        <ul className="render-data">{this.props.movie_list && this.props.movie_list.items && this.state.movieDataList.map(list => <li key={list.id} id={list.id} className="movie-name" ><h4>{list.title}</h4><img src={list.imageUrl}  alt="Image not Found"></img>
-                            <div className="description-btn">
-                                <button className="btn btn-success" onClick={(event) => this.exploreDetails(list.id)}>
-                                    {`
-                                    ${showDescription.indexOf(list.id) === -1 ? "Show Description" : "Hide Description"}
-                                    `}
-                                </button>
-                            </div>
-                            <div className={`description ${showDescription.indexOf
-                                (list.id) === -1 ? "hide" : ""}`}>
-                                <p><span className="text-bold">Synopsis:</span> {list.synopsis}</p>
-                                <p><span className="text-bold">Release Year:</span> {list.releaseDate}</p>
-                            </div>
-                        </li>)}
+                        <ul className="render-data">{this.props.movie_list && this.props.movie_list.items && this.state.movieDataList.map(list =>
+                            <ShowMovieDescription list={list} showDescription={showDescription} exploreDetails={(e) => this.exploreDetails(e)} />
+                        )}
 
                         </ul>
                     </div>
